@@ -17,13 +17,12 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-- task: AzureWebApp@1
+- task: AzureRmWebAppDeployment@5
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Qanawat DCB DEV(ee09fb3f-1b3f-4bf2-85e4-2d3b593df783)'
     appType: 'webAppLinux'
-    appName: 'aspmvc-app'
-    deployToSlotOrASE: true
-    resourceGroupName: 'aspmvc-app_group'
-    slotName: 'production'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    runtimeStack: 'DOTNETCORE|8.0'
+    WebAppName: '2n-webapp'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'DOTNETCORE|9.0'
+    DeploymentTypeLinux: 'oneDeploy'
