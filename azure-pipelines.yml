@@ -24,4 +24,4 @@ steps:
     resourceGroupName: 'aspmvc-app_group'
     slotName: 'production'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    runtimeStack: 'DOTNETCORE|9.0'
+    runtimeStack: 'DOTNETCORE|6.0'
