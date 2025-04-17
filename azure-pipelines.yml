@@ -32,3 +32,16 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Qanawat DCB DEV(ee09fb3f-1b3f-4bf2-85e4-2d3b593df783)'
+    appType: 'webAppLinux'
+    appName: '2n-webapp'
+    deployToSlotOrASE: true
+    resourceGroupName: 'aspmvc-app_group'
+    slotName: 'production'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    runtimeStack: 'DOTNETCORE|9.0'
+    startupCommand: 'dotnet 2n-webapp.dll'
+    
